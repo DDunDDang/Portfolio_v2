@@ -11,7 +11,7 @@ const Skill = () => {
     ]
 
     function changeSpace(name) {
-        return name.replace(" ", "_");
+        return name.toLowerCase().replace(" ", "_");
     }
     
     return (
