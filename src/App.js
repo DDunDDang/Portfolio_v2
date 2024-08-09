@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import './App.css';
 import Main from './components/Main';
 import Skill from './components/Skill';
+import Certificate from './components/Certificate';
 import Project from './components/Project';
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
 
                 <section ref={sectionRefs.skill} className="flex flex-col items-center justify-center w-screen min-h-screen">
                     <Skill />
+                    <Certificate />
                 </section>
 
                 <section ref={sectionRefs.project} className="flex items-center justify-center w-screen min-h-screen">
