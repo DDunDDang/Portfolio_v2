@@ -22,8 +22,8 @@ const Skill = () => {
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
                 {skills.map((skill) => (
                     <div className="flex flex-col items-center" tabIndex="0" role="img" aria-label={skill.name} key={skill.id}>
-                        <img src={`./././images/${changeSpace(skill.name)}.svg`} alt='' className="w-16 h-16 mb-2" />
-                        <h3 className='text-lg text-center'>
+                        <img src={`./././images/skills/${changeSpace(skill.name)}.svg`} alt='' className="w-16 h-16 mb-2" />
+                        <h3 className="text-lg text-center">
                             {skill.name}
                         </h3>
                     </div>
