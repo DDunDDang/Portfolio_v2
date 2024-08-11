@@ -32,7 +32,7 @@ body {
 .container {
   display: flex;
   flex-direction: row;
-  width: 80vw; /* 전체 화면 너비 */
+  width: 90vw; /* 전체 화면 너비 */
   height: 100vh; /* 전체 화면 높이 */
   scroll-snap-type: x mandatory;
   transition: transform 0.5s ease;
@@ -73,6 +73,9 @@ h1 {
   -webkit-text-fill-color: transparent;
   font-size: 2rem;
   margin-bottom: 2rem;
+  word-break: keep-all;
+  white-space: nowrap; /* 줄바꿈 방지 */
+
 }
 
 h3 {
