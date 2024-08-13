@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+import ComponetHeader from "./ComponentHeader";
 
 const Skill = () => {
     const skills = [
@@ -16,9 +17,7 @@ const Skill = () => {
     
     return (
         <section className="w-full max-w-4xl mx-auto">
-            <header className="pt-8 mb-4 text-2xl font-bold">
-                <h2>Skills & Tools</h2>
-            </header>
+            <ComponetHeader name="Skills & Tools" />
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
                 {skills.map((skill) => (
                     <div className="flex flex-col items-center" tabIndex="0" role="img" aria-label={skill.name} key={skill.id}>

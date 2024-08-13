@@ -1,4 +1,5 @@
 import React from "react";
+import ComponetHeader from "./ComponentHeader";
 
 const Project = () => {
 
@@ -22,9 +23,7 @@ const Project = () => {
     return (
         <div className="container flex items-center justify-center min-h-screen mx-auto">
             <section className="max-w-4xl px-4" id="project">
-                <header className="mb-6 text-2xl font-bold text-center">
-                    <h2>Projects</h2>
-                </header>
+            <ComponetHeader name="Project" />
                 <div className="space-y-6">
                     {projects.map((project, index) => (
                     <article 

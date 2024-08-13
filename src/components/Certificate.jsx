@@ -1,4 +1,5 @@
 import React from "react";
+import ComponetHeader from "./ComponentHeader";
 
 const Certificate = () => {
     const certificates = [
@@ -9,9 +10,7 @@ const Certificate = () => {
 
     return (
         <section className='w-full max-w-4xl px-5 mx-auto -mt-14'>
-            <header className='mb-4 text-2xl font-bold'>
-                <h2>Certificates</h2>
-            </header>
+            <ComponetHeader name="Certificates" />
             <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {certificates.map((certificate) => (
                     <li key={certificate.id} className="p-4 bg-gray-100 rounded-lg">
