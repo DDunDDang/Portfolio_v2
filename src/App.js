@@ -66,21 +66,45 @@ function App() {
         };
     }, []);
 
+    const sectionNames = ["Main", "Education", "Skills & Certificates", "Projects"];
+
+    const getPreviousSection = () => {
+        return currentSection > 0 ? sectionNames[currentSection - 1] : null;
+    };
+
+    const getNextSection = () => {
+        return currentSection < sectionNames.length - 1 ? sectionNames[currentSection + 1] : null;
+    };
+
     return (
-        <div>
+<div>
             <div className="fixed top-0 left-0 w-full p-4 bg-gray-900">
-                <div className="flex justify-center space-x-4">
-                    {Object.keys(sectionRefs).map((key, index) => (
-                        <div
-                            key={index}
-                            className={`w-3 h-3 rounded-full ${
-                                currentSection === index ? "bg-white" : "bg-slate-400"
-                            }`}
-                        />
-                    ))}
+                <div className="flex items-center justify-between">
+                    <div className="flex items-center w-1/3 text-left text-slate-400">
+                        {getPreviousSection() && (
+                            <>
+                                <svg className="w-6 h-6 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 12l6-6v12l-6-6z" fill="currentColor"/>
+                                </svg>
+                                <span>{getPreviousSection()}</span>
+                            </>
+                        )}
+                    </div>
+                    <div className="w-1/3 text-center text-white">
+                        {sectionNames[currentSection]}
+                    </div>
+                    <div className="flex items-center justify-end w-1/3 text-right text-slate-400">
+                        {getNextSection() && (
+                            <>
+                                <span>{getNextSection()}</span>
+                                <svg className="w-6 h-6 ml-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 12l-6 6V6l6 6z" fill="currentColor"/>
+                                </svg>
+                            </>
+                        )}
+                    </div>
                 </div>
             </div>
-
             <div ref={containerRef} className="scroll-container flex w-[400vw] transition-transform duration-500 ease-in-out">
                 <section ref={sectionRefs.main} className="flex items-center justify-center w-screen min-h-screen">
                     <Main />
@@ -98,17 +122,25 @@ function App() {
             </div>
 
             {showScrollMessage && (
-                <div 
-                    className="fixed bottom-0 left-0 flex items-center justify-center w-full p-4 text-center text-white transition-opacity duration-500 ease-in-out bg-black bg-opacity-70"
-                    style={{ opacity: messageOpacity }}
-                >
-                    <svg className="w-6 h-6 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="5" y="1" width="14" height="22" rx="7" stroke="currentColor" strokeWidth="2"/>
-                        <line x1="12" y1="6" x2="12" y2="10" stroke="currentColor" strokeWidth="2"/>
-                    </svg>
-                    마우스를 스크롤 하면 화면이 좌우로 움직입니다.
-                </div>
-            )}
+    <div 
+        className="fixed bottom-0 left-0 flex items-center justify-center w-full p-4 text-center text-white transition-opacity duration-500 ease-in-out bg-black bg-opacity-70"
+        style={{ opacity: messageOpacity }}
+    >
+        <svg className="w-6 h-6 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 12l6-6v12l-6-6z" fill="currentColor"/>
+        </svg>
+        <svg className="w-6 h-6 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="5" y="1" width="14" height="22" rx="7" stroke="currentColor" strokeWidth="2"/>
+            <line x1="12" y1="6" x2="12" y2="10" stroke="currentColor" strokeWidth="2"/>
+        </svg>
+        마우스를 스크롤 하면 화면이 좌우로 움직입니다.
+        <svg className="w-6 h-6 ml-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 12l-6 6V6l6 6z" fill="currentColor"/>
+        </svg>
+    </div>
+)}
+
+
         </div>
     );
 }
