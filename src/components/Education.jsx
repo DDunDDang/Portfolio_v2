@@ -19,12 +19,10 @@ const Education = () => {
         <section className="w-full max-w-4xl px-5 mx-auto">
             <div className="">
                 <Header name="Education" />
-                <div className="space-y-12">
+                <div className="flex flex-row">
                     {eduList.map((edu, index) => (
                         <div key={index} className="flex items-start space-x-6">
-                            <div className="flex-shrink-0">
-                            </div>
-                            <div className="flex-grow p-6 bg-gray-800 border border-gray-700 rounded-lg shadow-lg">
+                            <div className="flex-grow p-6 bg-gray-800 border-gray-700 rounded-lg shadow-lg">
                                 <h3 className="mb-2 text-xl font-semibold text-blue-400">{edu.name}</h3>
                                 <p className="mb-4 text-sm text-gray-400">{`${edu.period[0]} - ${edu.period[1]}`}</p>
                                 <p className="text-gray-300">{edu.description}</p>
