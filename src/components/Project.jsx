@@ -35,7 +35,7 @@ const Project = () => {
     return (
         <div className="container flex items-center justify-center min-h-screen mx-auto">
             <section className="relative max-w-4xl px-4" id="project">
-                <ComponentHeader name="Project" />
+                <ComponentHeader name="Projects" />
                 
                 {/* 프로젝트 인디케이터 */}
                 <div className="flex justify-center mb-4 space-x-2">
