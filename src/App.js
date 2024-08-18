@@ -51,7 +51,7 @@ function App() {
         setCurrentSection(scrollPosition);
     }, [scrollPosition]);
 
-    const sectionNames = ["Main", "Education", "Skills & Certificates", "Projects"];
+    const sectionNames = ["Main", "Education & Certificates", "Skills", "Projects"];
 
     const getPreviousSection = () => {
         return currentSection > 0 ? sectionNames[currentSection - 1] : null;
@@ -73,12 +73,13 @@ function App() {
                 <section ref={sectionRefs.main} className="flex items-center justify-center w-screen min-h-screen">
                     <Main />
                 </section>
-                <section ref={sectionRefs.edu} className="flex flex-col items-center justify-center w-screen min-h-screen">
+                <section ref={sectionRefs.edu} className="flex items-center justify-center w-screen min-h-screen">
                     <Education />
+                    <Certificate />
                 </section>
                 <section ref={sectionRefs.skill} className="flex flex-col items-center justify-center w-screen min-h-screen">
                     <Skill />
-                    <Certificate />
+                    
                 </section>
                 <section ref={sectionRefs.project} className="flex items-center justify-center w-screen min-h-screen">
                     <Project />
