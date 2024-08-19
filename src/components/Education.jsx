@@ -16,7 +16,7 @@ const eduList = [
 
 const Education = () => {
     return (
-        <section className="w-full max-w-4xl px-5 mx-auto">
+        <section className="w-screen max-w-4xl -mb-20">
             <div className="">
                 <Header name="Education" />
                 <div className="flex flex-row">

@@ -9,7 +9,8 @@ const Certificate = () => {
     ];
 
     return (
-        <section className='w-full max-w-4xl px-5 mx-auto -mt-14'>
+        <section className="w-full max-w-4xl px-5 mx-auto -mt-20">
+            <div className="w-screen max-w-4xl">
             <ComponetHeader name="Certificates" />
             <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {certificates.map((certificate) => (
@@ -23,6 +24,7 @@ const Certificate = () => {
                     </li>
                 ))}
             </ul>
+            </div>
         </section>
     );
 }

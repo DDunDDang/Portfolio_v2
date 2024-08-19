@@ -51,7 +51,7 @@ function App() {
         setCurrentSection(scrollPosition);
     }, [scrollPosition]);
 
-    const sectionNames = ["Main", "Education & Certificates", "Skills", "Projects"];
+    const sectionNames = ["Main", "Education & Certificates", "Skills & Tools", "Projects"];
 
     const getPreviousSection = () => {
         return currentSection > 0 ? sectionNames[currentSection - 1] : null;
@@ -70,18 +70,17 @@ function App() {
                 sectionNames={sectionNames}
             />
             <div ref={containerRef} className="scroll-container flex w-[400vw] transition-transform duration-500 ease-in-out">
-                <section ref={sectionRefs.main} className="flex items-center justify-center w-screen min-h-screen">
+                <section ref={sectionRefs.main}>
                     <Main />
                 </section>
-                <section ref={sectionRefs.edu} className="flex items-center justify-center w-screen min-h-screen">
+                <section ref={sectionRefs.edu}>
                     <Education />
                     <Certificate />
                 </section>
-                <section ref={sectionRefs.skill} className="flex flex-col items-center justify-center w-screen min-h-screen">
+                <section ref={sectionRefs.skill}>
                     <Skill />
-                    
                 </section>
-                <section ref={sectionRefs.project} className="flex items-center justify-center w-screen min-h-screen">
+                <section ref={sectionRefs.project}>
                     <Project />
                 </section>
             </div>
