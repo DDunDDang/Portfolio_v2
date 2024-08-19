@@ -33,22 +33,9 @@ const Project = () => {
     }, [currentProject]);
 
     return (
-        <div className="container flex items-center justify-center min-h-screen mx-auto">
-            <section className="relative max-w-4xl px-4" id="project">
+        <section className="w-full max-w-4xl px-5 mx-auto">
+            <div className="w-screen max-w-4xl">
                 <ComponentHeader name="Projects" />
-                
-                {/* 프로젝트 인디케이터 */}
-                <div className="flex justify-center mb-4 space-x-2">
-                    {projects.map((_, id) => (
-                        <div
-                            key={id}
-                            className={`w-3 h-3 rounded-full ${
-                                id === currentProject ? "bg-white" : "bg-slate-400"
-                            }`}
-                        />
-                    ))}
-                </div>
-                
                 <div className="relative flex flex-col items-center justify-center space-y-4">
                     <AnimatePresence mode="wait">
                         <motion.article
@@ -89,6 +76,17 @@ const Project = () => {
                             </div>
                         </motion.article>
                     </AnimatePresence>
+                    {/* 프로젝트 인디케이터 */}
+                    <div className="flex justify-center mb-4 space-x-2">
+                        {projects.map((_, id) => (
+                            <div
+                                key={id}
+                                className={`w-3 h-3 rounded-full ${
+                                id === currentProject ? "bg-white" : "bg-slate-400"
+                            }`}
+                        />
+                    ))}
+                    </div>
                     
                     <button 
                         onClick={handleNext} 
@@ -105,9 +103,8 @@ const Project = () => {
                         See more on Github
                     </button>
                 </div>
-                
-            </section>
-        </div>
+            </div>
+        </section>
     );
 };
 
