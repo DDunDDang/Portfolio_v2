@@ -5,7 +5,7 @@ const Certificate = () => {
     const certificates = [
         { id: 0, name: "SQL 개발자(SQLD)", date: "2023.07.07" },
         { id: 1, name: "리눅스마스터 2급 1차", date: "2024.08.07" },
-        { id: 2, name: "정보처리기사(예정)", date: "2024.09.10" },
+        { id: 2, name: "정보처리기사", date: "2024.09.10" },
     ];
 
     return (
