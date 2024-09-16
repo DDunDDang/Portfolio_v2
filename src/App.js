@@ -18,7 +18,6 @@ function App() {
     };
 
     const [currentSection, setCurrentSection] = useState(0);
-    const [scrollPosition, setScrollPosition] = useState(0);
 
     useEffect(() => {
         let scrollAccumulator = 0;
@@ -28,10 +27,10 @@ function App() {
             scrollAccumulator += e.deltaY;
     
             if (Math.abs(scrollAccumulator) >= 70) {
-                if (scrollAccumulator > 0 && scrollPosition < 3) {
-                    setScrollPosition(prev => prev + 1);
-                } else if (scrollAccumulator < 0 && scrollPosition > 0) {
-                    setScrollPosition(prev => prev - 1);
+                if (scrollAccumulator > 0 && currentSection < 3) {
+                    setCurrentSection(prev => prev + 1);
+                } else if (scrollAccumulator < 0 && currentSection > 0) {
+                    setCurrentSection(prev => prev - 1);
                 }
     
                 scrollAccumulator = 0;
@@ -43,30 +42,26 @@ function App() {
         return () => {
             window.removeEventListener("wheel", handleWheel);
         };
-    }, [scrollPosition]);
+    }, [currentSection]);
 
     useEffect(() => {
         const container = containerRef.current;
-        container.style.transform = `translateX(-${scrollPosition * 100}vw)`;
-        setCurrentSection(scrollPosition);
-    }, [scrollPosition]);
+        container.style.transform = `translateX(-${currentSection * 100}vw)`;
+    }, [currentSection]);
 
     const sectionNames = ["Main", "Education & Certificates", "Skills & Tools", "Projects"];
 
-    const getPreviousSection = () => {
-        return currentSection > 0 ? sectionNames[currentSection - 1] : null;
-    };
-
-    const getNextSection = () => {
-        return currentSection < sectionNames.length - 1 ? sectionNames[currentSection + 1] : null;
+    const handleNavigate = (newIndex) => {
+        if (newIndex >= 0 && newIndex < sectionNames.length) {
+            setCurrentSection(newIndex);
+        }
     };
 
     return (
         <div>
             <Nav
                 currentSection={currentSection}
-                getPreviousSection={getPreviousSection}
-                getNextSection={getNextSection}
+                onNavigate={handleNavigate}
                 sectionNames={sectionNames}
             />
             <div ref={containerRef} className="scroll-container flex w-[400vw] transition-transform duration-500 ease-in-out">
